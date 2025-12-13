@@ -1,3 +1,7 @@
+"""
+Webcam - Camera capture functionality
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+"""
 import cv2
 
 

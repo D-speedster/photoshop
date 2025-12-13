@@ -1,3 +1,7 @@
+"""
+History - Undo/Redo functionality with temp file storage
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+"""
 import cv2
 import tempfile
 import os

@@ -117,6 +117,7 @@ class MainWindow(QMainWindow):
         # نوار ابزار آیکونی سمت راست
         self.icon_toolbar = IconToolbar(self)
         main_lay.addWidget(self.icon_toolbar)
+        
         self._show_placeholder()
         
     def _load_style(self):
@@ -321,7 +322,7 @@ class MainWindow(QMainWindow):
             return
         
         from gui.face_detection_dialog import FaceDetectionDialog
-        dialog = FaceDetectionDialog(self.current_image, self.processor.face_detection, self)
+        dialog = FaceDetectionDialog(self.current_image, self.processor.face_detector, self)
         
         if dialog.exec_():
             result = dialog.get_processed_image()

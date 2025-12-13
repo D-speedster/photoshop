@@ -1,3 +1,7 @@
+"""
+Image Filters - Various image filter effects
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+"""
 import cv2
 import numpy as np
 

@@ -1,9 +1,13 @@
+"""
+Image Processor - Main image processing engine
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+"""
 import cv2
 import numpy as np
 from core.filters import Filters
 from core.adjustments import Adjustments
 from core.drawing_tools import DrawingTools
-from core.face_detection import FaceDetection
+from core.face_detection import FaceDetector
 
 
 class ImageProcessor:
@@ -11,7 +15,7 @@ class ImageProcessor:
         self.filters = Filters()
         self.adjustments = Adjustments()
         self.drawing_tools = DrawingTools()
-        self.face_detection = FaceDetection()
+        self.face_detector = FaceDetector()
         
     def apply_filter(self, image, filter_name, **params):
         if image is None:

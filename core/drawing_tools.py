@@ -1,3 +1,7 @@
+"""
+Drawing Tools - Line, rectangle, circle and text drawing
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+"""
 import cv2
 
 

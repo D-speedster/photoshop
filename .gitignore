@@ -1,43 +1,37 @@
-# Python
+# Byte-compiled
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
-.Python
-env/
-venv/
-.venv/
-pip-log.txt
 
-# PyInstaller
+# Distribution
 build/
 dist/
+*.egg-info/
+*.egg
 *.spec
-*.exe
+
+# PyInstaller
+*.manifest
+
+# Environments
+.env
+.venv
+env/
+venv/
 
 # IDE
 .idea/
 .vscode/
 *.swp
-*.swo
+*~
 
 # OS
 .DS_Store
 Thumbs.db
-desktop.ini
 
 # Project specific
+presentation/
 *.log
-*.tmp
 temp/
-output/
-exports/
-
-# Large files
-*.mp4
-*.avi
-*.mkv
-*.mov
-*.zip
-*.rar
-*.7z
+tmp/

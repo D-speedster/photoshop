@@ -1,77 +1,79 @@
 # Photo Editor
 
-A desktop photo editing application built with Python, PyQt5 and OpenCV.
+A professional image editing application built with Python, PyQt5 and OpenCV.
+
+**Author:** [D-speedster](https://github.com/D-speedster)
 
 ## Features
 
-- **Basic Editing**: Brightness, Contrast, Saturation adjustments
-- **Filters**: Blur, Sharpen, Edge Detection, Emboss, Grayscale, Sepia, Invert, Cartoon
-- **Color Channels**: Remove or isolate Red/Green/Blue channels
-- **Transform**: Rotate, Flip, Crop, Resize
-- **Drawing Tools**: Line, Rectangle, Circle, Ellipse, Text
-- **Face Detection**: Detect faces, eyes, smiles with blur/pixelate/emoji options
-- **Selection Tool**: Select area and apply crop, blur, fill, invert
-- **Video Processing**: Open video files and extract frames
-- **Batch Processing**: Apply filters to multiple images
-- **Camera**: Capture photos from webcam
-- **History**: Undo/Redo support
+### Basic Features
+- Open/Save images (PNG, JPG, BMP, TIFF)
+- Webcam capture with live preview
+- Undo/Redo (10 steps)
+- Zoom In/Out
 
-## Screenshots
+### Filters
+- Blur, Sharpen, Edge Detection
+- Grayscale, Sepia, Invert
+- Emboss, Cartoon, Median
 
-*Coming soon*
+### Adjustments
+- Brightness, Contrast, Saturation
+- Live preview with sliders
+
+### Transform
+- Crop with preview
+- Resize with aspect ratio
+- Rotate (90°, -90°, 180°, free angle)
+- Flip (horizontal/vertical)
+
+### Drawing Tools
+- Line, Rectangle, Circle
+- Text with Persian/English support
+- Custom colors and thickness
+- Fill options
+
+### Advanced Features
+- Face Detection (face, eyes, smile)
+- Face blur/pixelate
+- Selection tool with operations
+- Layers support
+- Color Picker (RGB/HEX)
+- Histogram display
+- Before/After comparison
+- Batch processing
+- Image blending
 
 ## Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/yourusername/PhotoEditor.git
-cd PhotoEditor
-```
-
-2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. Run the application:
+## Usage
+
 ```bash
 python main.py
 ```
+
+## Build Executable
+
+```bash
+python build_exe.py
+```
+
+The executable will be created in the `dist` folder.
 
 ## Requirements
 
 - Python 3.8+
 - PyQt5
-- OpenCV (cv2)
+- OpenCV
 - NumPy
 - Pillow
 
-## Build Executable
-
-To create a standalone .exe file:
-```bash
-pip install pyinstaller
-python build_exe.py
-```
-
-The executable will be in the `dist` folder.
-
-## Project Structure
-
-```
-PhotoEditor/
-├── main.py              # Entry point
-├── gui/                 # UI components
-├── core/                # Image processing logic
-├── utils/               # Helper functions
-├── camera/              # Webcam handling
-└── assets/              # Styles and resources
-```
-
 ## License
 
-MIT License
+MIT License - See [LICENSE](LICENSE) file for details.
 
-## Author
-
-Made with ❤️ as a learning project
+Copyright (c) 2024 [D-speedster](https://github.com/D-speedster)

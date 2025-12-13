@@ -1,3 +1,7 @@
+"""
+File Handler - Open and save image files
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+"""
 import cv2
 from PyQt5.QtWidgets import QFileDialog
 

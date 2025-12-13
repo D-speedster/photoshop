@@ -1,3 +1,8 @@
+"""
+Photo Editor - Professional Image Editing Application
+Copyright (c) 2024 D-speedster (github.com/D-speedster)
+Licensed under MIT License
+"""
 import sys
 from PyQt5.QtWidgets import QApplication
 from gui.main_window import MainWindow
