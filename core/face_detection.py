@@ -4,18 +4,50 @@ Copyright (c) 2024 D-speedster (github.com/D-speedster)
 """
 import cv2
 import numpy as np
+import os
+import sys
+
+
+def get_cascade_path():
+    """Get path to haarcascades folder"""
+    # First try cv2.data.haarcascades
+    if hasattr(cv2, 'data') and cv2.data.haarcascades:
+        return cv2.data.haarcascades
+    
+    # For PyInstaller bundled app
+    if getattr(sys, 'frozen', False):
+        base_path = sys._MEIPASS
+        cascade_path = os.path.join(base_path, 'cv2', 'data')
+        if os.path.exists(cascade_path):
+            return cascade_path + os.sep
+    
+    # Fallback
+    return cv2.data.haarcascades if hasattr(cv2, 'data') else ''
 
 
 class FaceDetector:
     def __init__(self):
-        cv2_path = cv2.data.haarcascades
-        self.face_cascade = cv2.CascadeClassifier(cv2_path + 'haarcascade_frontalface_default.xml')
-        self.face_cascade_alt = cv2.CascadeClassifier(cv2_path + 'haarcascade_frontalface_alt2.xml')
-        self.eye_cascade = cv2.CascadeClassifier(cv2_path + 'haarcascade_eye.xml')
-        self.eye_glasses = cv2.CascadeClassifier(cv2_path + 'haarcascade_eye_tree_eyeglasses.xml')
-        self.left_eye = cv2.CascadeClassifier(cv2_path + 'haarcascade_lefteye_2splits.xml')
-        self.right_eye = cv2.CascadeClassifier(cv2_path + 'haarcascade_righteye_2splits.xml')
-        self.smile_cascade = cv2.CascadeClassifier(cv2_path + 'haarcascade_smile.xml')
+        cv2_path = get_cascade_path()
+        
+        self.face_cascade = self._load_cascade(cv2_path, 'haarcascade_frontalface_default.xml')
+        self.face_cascade_alt = self._load_cascade(cv2_path, 'haarcascade_frontalface_alt2.xml')
+        self.eye_cascade = self._load_cascade(cv2_path, 'haarcascade_eye.xml')
+        self.eye_glasses = self._load_cascade(cv2_path, 'haarcascade_eye_tree_eyeglasses.xml')
+        self.left_eye = self._load_cascade(cv2_path, 'haarcascade_lefteye_2splits.xml')
+        self.right_eye = self._load_cascade(cv2_path, 'haarcascade_righteye_2splits.xml')
+        self.smile_cascade = self._load_cascade(cv2_path, 'haarcascade_smile.xml')
+        
+    def _load_cascade(self, path, filename):
+        """Load cascade with error handling"""
+        full_path = os.path.join(path, filename) if path else filename
+        cascade = cv2.CascadeClassifier(full_path)
+        
+        if cascade.empty():
+            # Try alternative path
+            alt_path = cv2.data.haarcascades + filename if hasattr(cv2, 'data') else filename
+            cascade = cv2.CascadeClassifier(alt_path)
+            
+        return cascade
         
     def detect_faces_advanced(self, image, detect_eyes=True, detect_smile=False, min_size=50, accuracy=6):
         """تشخیص چهره با تنظیمات پیشرفته"""
